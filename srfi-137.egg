@@ -1,0 +1,10 @@
+;;; srfi-137.egg -*- Scheme -*- vim: ft=scheme:
+
+((author "John Cowan, Marc Nieper-Wißkirchen")
+ (maintainer "Sergey Goldgaber")
+ (synopsis "SRFI-137: Minimal Unique Types")
+ (version "0.1")
+ (category data)
+ (test-dependencies srfi-64)
+ (license "MIT")
+ (components (extension srfi-137)))
