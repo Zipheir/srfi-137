@@ -6,7 +6,7 @@ This SRFI is intended to standardize a primitive run-time mechanism to create di
 === Rationale
 This SRFI provides a simple hook to create new data types at run time that are disjoint from all existing types. allowing portable libraries to implement SRFI 9, SRFI 99, SRFI 131, SRFI 135, R6RS records, Chicken records, CLOS, persistent databases, remote access to data on servers, and the like on top of it. It is also portably implementable and usable entirely separately from any of these.
 
-Note that there is no concept of a type object here: a type is simply a name for a group of closely linked procedures that allow the creation and manipulation of type instances (which are objects) and subtypes. This SRFI exposes no ambient authority, and relies entirely on module exports for access control. It is based on a less radical proposal by Alaric Snell-Pym, UniqueTypesSnellPym.
+Note that there is no concept of a type object here: a type is simply a name for a group of closely linked procedures that allow the creation and manipulation of type instances (which are objects) and subtypes. This SRFI exposes no ambient authority, and relies entirely on module exports for access control. It is based on a less radical proposal by Alaric Snell-Pym, [[http://trac.sacrideo.us/wg/wiki/UniqueTypesSnellPym|UniqueTypesSnellPym]].
 
 John Cowan is the author and shepherd of this SRFI. Marc Nieper-Wißkirchen is the author of the sample implementation.
 === Specification
