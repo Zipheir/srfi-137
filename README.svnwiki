@@ -2,7 +2,7 @@
 === Abstract
 This SRFI is intended to standardize a primitive run-time mechanism to create disjoint types.
 
-* For more information see: [[https://srfi.schemers.org/srfi-137/][SRFI 137: Minimal Unique Types]]
+* For more information see: [[https://srfi.schemers.org/srfi-137/|SRFI 137: Minimal Unique Types]]
 === Rationale
 This SRFI provides a simple hook to create new data types at run time that are disjoint from all existing types. allowing portable libraries to implement SRFI 9, SRFI 99, SRFI 131, SRFI 135, R6RS records, Chicken records, CLOS, persistent databases, remote access to data on servers, and the like on top of it. It is also portably implementable and usable entirely separately from any of these.
 
@@ -67,5 +67,5 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ==== Version history
-* [[https://github.com/diamond-lizard/srfi-137/releases/tag/0.1][0.1]] - Ported to Chicken Scheme 5
+* [[https://github.com/diamond-lizard/srfi-137/releases/tag/0.1|0.1]] - Ported to Chicken Scheme 5
 
