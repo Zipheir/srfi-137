@@ -15,15 +15,15 @@ John Cowan is the author and shepherd of this SRFI. Marc Nieper-Wißkirchen is t
 
 Calling make-type on type-payload, which can be any Scheme object, returns five values, all of which are procedures. They are distinct (in the sense of eqv?) from each other and from any other procedures returned by other calls to make-type. In brief, the five functions:
 
-  * return type-payload
+* return type-payload
 
-  * return newly allocated objects of a disjoint type known as instances, each associated with an instance payload
+* return newly allocated objects of a disjoint type known as instances, each associated with an instance payload
 
-  * return {{#t}} iff an object is an instance of this type
+* return {{#t}} iff an object is an instance of this type
 
-  * return the instance payload
+* return the instance payload
 
-  * return five more procedures associated with a subtype of this type
+* return five more procedures associated with a subtype of this type
 
 Details are given for a sample type in the next section. The type payload might contain metadata (such as field names or class variables) associated with the type as a whole.
 ==== Sample procedures for a type
@@ -54,7 +54,7 @@ Returns the instance payload of reia. It is an error if reia does not satisfy re
 Returns five new procedures with the same semantics as make-type, such that the objects returned by constructor satisfy reia? and their payload can be accessed using
 reia-ref.
 ==== Implementation
-The sample implementation of this SRFI is in the associated repository. Note that the predicate functions are O(k) where k is the depth of the type tree. An O(1) implementation is possible at the expense of making the creation of subtypes O(k).
+The sample implementation of this SRFI is in the associated repository. Note that the predicate functions are {{O(k)}} where {{k}} is the depth of the type tree. An {{O(1)}} implementation is possible at the expense of making the creation of subtypes {{O(k)}}.
 ==== Author
  * John Cowan, Marc Nieper-Wißkirchen
  * Ported to Chicken Scheme 5 by Sergey Goldgaber
