@@ -43,16 +43,16 @@ Returns a newly allocated instance associated with instance-payload. This associ
 
 <procedure>(reia? object)→ boolean</procedure>
 
-Returns {{#t}} iff object was returned by a call to make-reia or any constructor created as part of a direct or indirect subtype of the reia type.
+Returns {{#t}} iff object was returned by a call to {{make-reia}} or any constructor created as part of a direct or indirect subtype of the {{reia}} type.
 
 <procedure>(reia-ref reia)→ object</procedure>
 
-Returns the instance payload of reia. It is an error if reia does not satisfy reia?.
+Returns the instance payload of {{reia}}. It is an error if {{reia}} does not satisfy {{reia?}}.
 
 <procedure>(make-reia-subtype type-payload)→ type-accessor constructor predicate accessor make-subtype</procedure>
 
-Returns five new procedures with the same semantics as make-type, such that the objects returned by constructor satisfy reia? and their payload can be accessed using
-reia-ref.
+Returns five new procedures with the same semantics as make-type, such that the objects returned by constructor satisfy {{reia?}} and their payload can be accessed using
+{{reia-ref}}.
 ==== Implementation
 The sample implementation of this SRFI is in the associated repository. Note that the predicate functions are {{O(k)}} where {{k}} is the depth of the type tree. An {{O(1)}} implementation is possible at the expense of making the creation of subtypes {{O(k)}}.
 ==== Author
