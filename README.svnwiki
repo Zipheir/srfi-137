@@ -19,7 +19,7 @@ Calling make-type on type-payload, which can be any Scheme object, returns five 
 
   * return newly allocated objects of a disjoint type known as instances, each associated with an instance payload
 
-  * return #t iff an object is an instance of this type
+  * return {{#t}} iff an object is an instance of this type
 
   * return the instance payload
 
@@ -43,7 +43,7 @@ Returns a newly allocated instance associated with instance-payload. This associ
 
 <procedure>(reia? object)→ boolean</procedure>
 
-Returns #t iff object was returned by a call to make-reia or any constructor created as part of a direct or indirect subtype of the reia type.
+Returns {{#t}} iff object was returned by a call to make-reia or any constructor created as part of a direct or indirect subtype of the reia type.
 
 <procedure>(reia-ref reia)→ object</procedure>
 
