@@ -1,16 +1,16 @@
-* SRFI-137: Minimal Unique Types
-** Abstract
+== SRFI-137: Minimal Unique Types
+=== Abstract
 This SRFI is intended to standardize a primitive run-time mechanism to create disjoint types.
 
  * For more information see: [[https://srfi.schemers.org/srfi-137/][SRFI 137: Minimal Unique Types]]
-** Rationale
+=== Rationale
 This SRFI provides a simple hook to create new data types at run time that are disjoint from all existing types. allowing portable libraries to implement SRFI 9, SRFI 99, SRFI 131, SRFI 135, R6RS records, Chicken records, CLOS, persistent databases, remote access to data on servers, and the like on top of it. It is also portably implementable and usable entirely separately from any of these.
 
 Note that there is no concept of a type object here: a type is simply a name for a group of closely linked procedures that allow the creation and manipulation of type instances (which are objects) and subtypes. This SRFI exposes no ambient authority, and relies entirely on module exports for access control. It is based on a less radical proposal by Alaric Snell-Pym, UniqueTypesSnellPym.
 
 John Cowan is the author and shepherd of this SRFI. Marc Nieper-Wißkirchen is the author of the sample implementation.
-** Specification
-*** Make-type
+=== Specification
+==== Make-type
 (make-type type-payload) → type-accessor constructor predicate accessor make-subtype
 
 Calling make-type on type-payload, which can be any Scheme object, returns five values, all of which are procedures. They are distinct (in the sense of eqv?) from each other and from any other procedures returned by other calls to make-type. In brief, the five functions:
@@ -26,7 +26,7 @@ Calling make-type on type-payload, which can be any Scheme object, returns five 
   * return five more procedures associated with a subtype of this type
 
 Details are given for a sample type in the next section. The type payload might contain metadata (such as field names or class variables) associated with the type as a whole.
-*** Sample procedures for a type
+==== Sample procedures for a type
 For the purposes of this section, we will suppose that
 
 (define-values (reia-metadata make-reia reia? reia-ref make-reia-subtype) (make-type 'reia))
@@ -53,12 +53,12 @@ Returns the instance payload of reia. It is an error if reia does not satisfy re
 
 Returns five new procedures with the same semantics as make-type, such that the objects returned by constructor satisfy reia? and their payload can be accessed using
 reia-ref.
-*** Implementation
+==== Implementation
 The sample implementation of this SRFI is in the associated repository. Note that the predicate functions are O(k) where k is the depth of the type tree. An O(1) implementation is possible at the expense of making the creation of subtypes O(k).
-*** Author
+==== Author
  * John Cowan, Marc Nieper-Wißkirchen
  * Ported to Chicken Scheme 5 by Sergey Goldgaber
-*** Copyright
+==== Copyright
 Copyright (C) John Cowan, Marc Nieper-Wißkirchen (2016). All Rights Reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -66,6 +66,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*** Version history
+==== Version history
  * [[https://github.com/diamond-lizard/srfi-137/releases/tag/0.1][0.1]] - Ported to Chicken Scheme 5
 
