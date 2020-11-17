@@ -13,7 +13,7 @@ John Cowan is the author and shepherd of this SRFI. Marc Nieper-Wißkirchen is t
 ==== Make-type
 <procedure>(make-type type-payload) → type-accessor constructor predicate accessor make-subtype</procedure>
 
-Calling make-type on type-payload, which can be any Scheme object, returns five values, all of which are procedures. They are distinct (in the sense of eqv?) from each other and from any other procedures returned by other calls to make-type. In brief, the five functions:
+Calling {{make-type}} on type-payload, which can be any Scheme object, returns five values, all of which are procedures. They are distinct (in the sense of eqv?) from each other and from any other procedures returned by other calls to {{make-type}}. In brief, the five functions:
 
 * return type-payload
 
@@ -39,7 +39,7 @@ Returns the symbol reia.
 
 <procedure>(make-reia instance-payload)→ reia</procedure>
 
-Returns a newly allocated instance associated with instance-payload. This association is single and immutable, but it is possible to make use of an appropriate container payload in order to effectively associate the instance with more than one value. To make the association effectively mutable, use a mutable payload such as a box, list or vector. Instances belong to a type that is disjoint from any existing Scheme type, including types created by other calls to make-type.
+Returns a newly allocated instance associated with instance-payload. This association is single and immutable, but it is possible to make use of an appropriate container payload in order to effectively associate the instance with more than one value. To make the association effectively mutable, use a mutable payload such as a box, list or vector. Instances belong to a type that is disjoint from any existing Scheme type, including types created by other calls to {{make-type}}.
 
 <procedure>(reia? object)→ boolean</procedure>
 
@@ -51,7 +51,7 @@ Returns the instance payload of {{reia}}. It is an error if {{reia}} does not sa
 
 <procedure>(make-reia-subtype type-payload)→ type-accessor constructor predicate accessor make-subtype</procedure>
 
-Returns five new procedures with the same semantics as make-type, such that the objects returned by constructor satisfy {{reia?}} and their payload can be accessed using
+Returns five new procedures with the same semantics as {{make-type}}, such that the objects returned by constructor satisfy {{reia?}} and their payload can be accessed using
 {{reia-ref}}.
 ==== Implementation
 The sample implementation of this SRFI is in the associated repository. Note that the predicate functions are {{O(k)}} where {{k}} is the depth of the type tree. An {{O(1)}} implementation is possible at the expense of making the creation of subtypes {{O(k)}}.
