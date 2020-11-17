@@ -11,7 +11,7 @@ Note that there is no concept of a type object here: a type is simply a name for
 John Cowan is the author and shepherd of this SRFI. Marc Nieper-Wißkirchen is the author of the sample implementation.
 === Specification
 ==== Make-type
-(make-type type-payload) → type-accessor constructor predicate accessor make-subtype
+<procedure>(make-type type-payload) → type-accessor constructor predicate accessor make-subtype</procedure>
 
 Calling make-type on type-payload, which can be any Scheme object, returns five values, all of which are procedures. They are distinct (in the sense of eqv?) from each other and from any other procedures returned by other calls to make-type. In brief, the five functions:
 
@@ -29,27 +29,27 @@ Details are given for a sample type in the next section. The type payload might 
 ==== Sample procedures for a type
 For the purposes of this section, we will suppose that
 
-(define-values (reia-metadata make-reia reia? reia-ref make-reia-subtype) (make-type 'reia))
+<procedure>(define-values (reia-metadata make-reia reia? reia-ref make-reia-subtype) (make-type 'reia))</procedure>
 
 has been evaluated, and document each of the five variables that it binds. "Reia" is an acronym for "remarkably 'evil' in appearance", and has no particular significance. Fnord!
 
-(reia-metadata) → object
+<procedure>(reia-metadata) → object</procedure>
 
 Returns the symbol reia.
 
-(make-reia instance-payload)→ reia
+<procedure>(make-reia instance-payload)→ reia</procedure>
 
 Returns a newly allocated instance associated with instance-payload. This association is single and immutable, but it is possible to make use of an appropriate container payload in order to effectively associate the instance with more than one value. To make the association effectively mutable, use a mutable payload such as a box, list or vector. Instances belong to a type that is disjoint from any existing Scheme type, including types created by other calls to make-type.
 
-(reia? object)→ boolean
+<procedure>(reia? object)→ boolean</procedure>
 
 Returns #t iff object was returned by a call to make-reia or any constructor created as part of a direct or indirect subtype of the reia type.
 
-(reia-ref reia)→ object
+<procedure>(reia-ref reia)→ object</procedure>
 
 Returns the instance payload of reia. It is an error if reia does not satisfy reia?.
 
-(make-reia-subtype type-payload)→ type-accessor constructor predicate accessor make-subtype
+<procedure>(make-reia-subtype type-payload)→ type-accessor constructor predicate accessor make-subtype</procedure>
 
 Returns five new procedures with the same semantics as make-type, such that the objects returned by constructor satisfy reia? and their payload can be accessed using
 reia-ref.
