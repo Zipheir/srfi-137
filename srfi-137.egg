@@ -3,6 +3,6 @@
  (synopsis "SRFI-137: Minimal Unique Types")
  (version "0.1")
  (category data)
- (test-dependencies srfi-64)
+ (test-dependencies test)
  (license "MIT")
  (components (extension srfi-137)))

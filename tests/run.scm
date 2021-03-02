@@ -1,19 +1,15 @@
 (import scheme)
 (import (chicken base))
-(import srfi-64)
+(import test)
 (import srfi-137)
 
 (test-begin "Unique run-time types")
 
-(test-equal "Type payload"
-            'reia
-            (let-values
-                (((reia-payload
-                   make-reia reia?
-                   reia-ref
-                   make-reia-subtype)
-                  (make-type 'reia)))
-              (reia-payload)))
+(test "Type payload"
+      'reia
+      (let-values (((reia-payload make-reia reia? reia-ref make-reia-subtype)
+                    (make-type 'reia)))
+        (reia-payload)))
 
 (test-assert "Disjoint procedures"
              (let-values
@@ -63,15 +59,11 @@
 
 (test-end)
 
-(test-equal "Instance payload"
-            'payload
-            (let-values
-                (((reia-payload
-                   make-reia
-                   reia?
-                   reia-ref
-                   make-reia-subtype)
-                  (make-type 'reia)))
-              (reia-ref (make-reia 'payload))))
+(test "Instance payload"
+      'payload
+      (let-values (((reia-payload make-reia reia? reia-ref make-reia-subtype)
+                    (make-type 'reia)))
+        (reia-ref (make-reia 'payload))))
 
 (test-end)
+(test-exit)
