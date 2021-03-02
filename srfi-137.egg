@@ -1,7 +1,7 @@
 ((author "John Cowan & Marc Nieper-Wißkirchen")
  (maintainer "Wolfgang Corcoran-Mathe")
  (synopsis "SRFI-137: Minimal Unique Types")
- (version "0.1")
+ (version "0.2")
  (category data)
  (test-dependencies test)
  (license "MIT")
